@@ -89,8 +89,8 @@ const Register = () => {
                     <Button variant="primary" type="submit" onClick={register}>
                         Register
                     </Button>
-                    <Button variant="primary" type="submit" onClick={handleBack}>
-                        Back
+                    <Button variant="primary"  onClick={handleBack}>
+                        Login
                     </Button>
                 </Form>
 
