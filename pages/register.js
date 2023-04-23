@@ -72,28 +72,65 @@ const Register = () => {
     return (
         <div>
             <div>
-                <h1 style={{color: "goldenrod", textAlign: "center"}}>Register</h1>
-                <Form>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control type="text" placeholder="Enter username" onChange={handleUsername}/>
-                    </Form.Group>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onChange={handleEmail}/>
-                    </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onChange={handlePassword}/>
-                    </Form.Group>
-                    <Button variant="primary" type="submit" onClick={register}>
-                        Register
-                    </Button>
-                    <Button variant="primary"  onClick={handleBack}>
-                        Login
-                    </Button>
-                </Form>
+                <div>
+                    <h1 style={{ color: "goldenrod", textAlign: "center" }}>Register</h1>
+                </div>
 
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6 mt-5 mx-auto">
+                            <Form style={{ width: "50%", margin: "auto" }}>
+                                <Form.Group controlId="formBasicEmail">
+                                    <Form.Label>Username</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Enter username"
+                                        name="username"
+                                        value={username}
+                                        onChange={handleUsername}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formBasicEmail">
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control
+                                        type="email"
+                                        placeholder="Enter email"
+                                        name="email"
+                                        value={email}
+                                        onChange={handleEmail}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formBasicPassword">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control
+                                        type="password"
+                                        placeholder="Password"
+                                        name="password"
+                                        value={password}
+                                        onChange={handlePassword}
+                                    />
+                                </Form.Group>
+
+                                <Button
+                                    variant="outline-success"
+                                    style={{ margin: "10px" }}
+                                    type="submit"
+                                    onClick={register}
+                                >
+                                    Register
+                                </Button>
+                                <Button
+                                    variant="outline-success"
+                                    style={{ margin: "10px" }}
+                                    type="button"
+                                    onClick={handleBack}
+                                >
+                                    Login
+                                </Button>
+                            </Form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
