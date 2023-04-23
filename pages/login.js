@@ -39,7 +39,7 @@ const Login = () => {
                 if (data.message === "User logged in") {
                     localStorage.setItem("token", data.data.token);
                     localStorage.setItem("role", data.data.role);
-                    router.push("/").then(r => console.log(r));
+                    router.push("/home").then(r => console.log(r));
                 } else if (data.errors[0].msg === "Invalid credentials") {
                     alert("Invalid credentials");
                 } else {
