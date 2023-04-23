@@ -122,7 +122,6 @@ const Register = () => {
                                 <Button
                                     variant="outline-success"
                                     style={{ margin: "10px" }}
-                                    type="button"
                                     onClick={handleBack}
                                 >
                                     Login
