@@ -4,7 +4,7 @@ import utilStyles from '../styles/utils.module.css';
 import Link from "next/link";
 import React  from "react";
 import {useEffect, useState} from "react";
-import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import {faBookOpenReader, faSearch} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Navbar from "../components/Navbar";
 import Single from "../components/Single";
@@ -66,7 +66,9 @@ export default function Home() {
                                                     </p>
                                                 </div>
                                                 <span style={{margin: "5px"}}>
-                                                <Single id={post.id}/>
+                                                <Link href={`posts/${post.id}`}>
+                                                     <FontAwesomeIcon icon={faBookOpenReader}/>
+                                                </Link>
                                             </span>
                                                 <br/>
                                                 <h6 className="card-subtitle mb-2 text-muted">

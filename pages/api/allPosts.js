@@ -24,27 +24,24 @@ export default async function allPosts(req, res) {
                         rows
                     }
                 });
-
             } else {
                 const {rows} = await client.query(
                     "SELECT * FROM blog_posts ORDER BY created_at DESC"
                 );
                 res.status(200).json({
                     status: "success",
-                    message: `${rows.length} blog posts found`,
+                    message: `${rows.length} blog posts`,
                     data: {
                         rows
                     }
                 });
             }
         } catch (err) {
-            console.error(err);
-            res.status(500).json({
-                status: "error",
-                message: "Error fetching blog posts"
-            });
+            console.error(err.message);
+            res.status(500).send("Server error");
+        } finally {
+            client.release();
         }
-      client.release();
     }
     if (method === 'POST') {
         try {
