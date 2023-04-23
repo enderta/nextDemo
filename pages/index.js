@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/Layout';
+import Layout, {siteTitle} from '../components/Layout';
 import utilStyles from '../styles/utils.module.css';
 import Link from "next/link";
 import {useEffect, useState} from "react";
@@ -20,30 +20,30 @@ export default function Home() {
                     {data.name}
                 </h1>
             </div>
-        <h1>
+            <h1>
 
-          <ul>
-            <li>
-                <Link href={'/posts/first-post'}>
-                   First Post
-                </Link>
-            </li>
-              {
-                    name.map((item, index) => {
-                        return <li key={index}>
-                            <Link href={`/posts/${item}`}>
-                                {item}
-                            </Link>
-                        </li>
-                    })
-              }
-            <li>
-                <Link href={'/about'}>
-                   About
-                </Link>
-            </li>
-          </ul>
-        </h1>
+                <ul>
+                    <li>
+                        <Link href={'/posts/first-post'}>
+                            First Post
+                        </Link>
+                    </li>
+                    {
+                        name.map((item, index) => {
+                            return <li key={index}>
+                                <Link href={`/posts/${item}`}>
+                                    {item}
+                                </Link>
+                            </li>
+                        })
+                    }
+                    <li>
+                        <Link href={'/about'}>
+                            About
+                        </Link>
+                    </li>
+                </ul>
+            </h1>
         </>
     );
 }
