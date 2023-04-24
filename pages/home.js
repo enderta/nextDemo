@@ -33,6 +33,7 @@ export default function Home() {
             )
             .catch((err) => console.log(err));
     }, [search]);
+    console.log(posts)
     return (
         <>
             <div>

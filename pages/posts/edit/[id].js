@@ -6,22 +6,15 @@ import {faEdit, faPaperPlane, faTrashAlt} from "@fortawesome/free-solid-svg-icon
 import Navbar from "../../../components/Navbar";
 
 export default function edit() {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [post, setPost] = useState([]);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [author, setAuthor] = useState("");
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+    const [image_url, setImage_url] = useState("");
     const [loading, setLoading] = useState(true);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const router = useRouter();
     const id= router.query.id;
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [title, setTitle] = useState("");
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [content, setContent] = useState("");
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [author, setAuthor] = useState("");
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [image_url, setImage_url] = useState("");
-    const created_at = new Date().toISOString();
+   const [date, setDate] = useState(new Date().toISOString());
 
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -47,9 +40,8 @@ export default function edit() {
                 )
                 .catch((err) => console.log(err));
         }
-        , [id])
-
-
+        , [])
+    console.log(date)
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
@@ -66,17 +58,15 @@ export default function edit() {
                 content: content,
                 author: author,
                 image_url: image_url,
-                created_at: created_at
-
+                updated_at: date
             })
         })
             .then(res => res.json())
             .then(data => {
                     setLoading(false);
-                    console.log(data);
+
                 }
             )
-
             .catch((err) => console.log(err));
         setTitle("");
         setContent("");
@@ -84,11 +74,12 @@ export default function edit() {
         setImage_url("");
         router.push("/home");
     }
-
         const handleTitle = (e) => {
             e.preventDefault();
             setTitle(e.target.value);
         }
+
+
         const handleContent = (e) => {
             e.preventDefault();
             setContent(e.target.value);

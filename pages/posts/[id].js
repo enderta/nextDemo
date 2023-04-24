@@ -45,12 +45,18 @@ export default function Post() {
                                     {
                                         (localStorage.getItem("role") === "admin") ? (
                                             <div className="d-flex justify-content-end">
-                                                <Button style={{margin:"1px"}} variant={"outline-danger"}  >
+                                                <Button variant={"outline-danger"}  >
+                                                    <Link href={`/posts/delete/${id}`} >
+
                                                     <FontAwesomeIcon icon={faTrashAlt} />
+                                                    </Link>
+
                                                 </Button>
-                                                <Link href={`/posts/edit/${id}`} variant={"outline-info"}  >
+                                                <Button variant={"outline-info"}  >
+                                                <Link href={`/posts/edit/${id}`}  >
                                                     <FontAwesomeIcon icon={faEdit} />
                                                 </Link>
+                                                </Button>
                                             </div>
                                         ) : (
                                             <div></div>
