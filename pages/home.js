@@ -75,6 +75,15 @@ export default function Home() {
                                                 <h6 className="card-subtitle mb-2 text-muted">
                                                     Posted: {new Date(post.created_at).toLocaleDateString()}
                                                 </h6>
+                                                {post.updated_at ? (
+                                                    <h6 className="card-subtitle mb-2 text-muted">
+                                                        Updated: {new Date(post.updated_at).toLocaleDateString()}
+                                                    </h6>
+                                                ) : (
+                                                    <></>)
+                                                }
+
+
                                             </div>
                                         </div>
                                     ))}

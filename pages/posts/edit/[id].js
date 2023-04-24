@@ -58,7 +58,7 @@ export default function edit() {
                 content: content,
                 author: author,
                 image_url: image_url,
-                created_at: created_at
+               updated_at: new Date().toISOString()
             })
         })
             .then(res => res.json())
