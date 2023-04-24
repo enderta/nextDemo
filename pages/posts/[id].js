@@ -1,5 +1,5 @@
-import React  from "react";
-import { useRouter } from 'next/router'
+import React from "react";
+import {useRouter} from 'next/router'
 import Button from "react-bootstrap/Button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEdit, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,7 @@ export default function Post() {
     const [post, setPost] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const router = useRouter();
-    const id= router.query.id;
+    const id = router.query.id;
     React.useEffect(() => {
             fetch(`http://localhost:3000/api/post/${id}`, {
                 method: "GET",
@@ -31,7 +31,6 @@ export default function Post() {
         , [id])
 
 
-
     return (
         <>
             <div>
@@ -45,17 +44,17 @@ export default function Post() {
                                     {
                                         (localStorage.getItem("role") === "admin") ? (
                                             <div className="d-flex justify-content-end">
-                                                <Button variant={"outline-danger"}  >
-                                                    <Link href={`/posts/delete/${id}`} >
+                                                <Button variant={"outline-danger"}>
+                                                    <Link href={`/posts/delete/${id}`}>
 
-                                                    <FontAwesomeIcon icon={faTrashAlt} />
+                                                        <FontAwesomeIcon icon={faTrashAlt}/>
                                                     </Link>
 
                                                 </Button>
-                                                <Button variant={"outline-info"}  >
-                                                <Link href={`/posts/edit/${id}`}  >
-                                                    <FontAwesomeIcon icon={faEdit} />
-                                                </Link>
+                                                <Button variant={"outline-info"}>
+                                                    <Link href={`/posts/edit/${id}`}>
+                                                        <FontAwesomeIcon icon={faEdit}/>
+                                                    </Link>
                                                 </Button>
                                             </div>
                                         ) : (
@@ -66,9 +65,13 @@ export default function Post() {
                             )}
                             <br/>
                             <div>
-                                <div >
-                                    <div >
-                                        <div style={{ whiteSpace: "pre-wrap" , wordWrap: "break-word", wordBreak: "break-word" }}>
+                                <div>
+                                    <div>
+                                        <div style={{
+                                            whiteSpace: "pre-wrap",
+                                            wordWrap: "break-word",
+                                            wordBreak: "break-word"
+                                        }}>
                                             {post.content}
                                         </div>
                                         <br/>
@@ -78,7 +81,8 @@ export default function Post() {
                                         <br/>
                                     </div>
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img className={"card-img-top"} src={post.image_url} style={{height:"400px",width:"600px"}} alt="Card image cap"/>
+                                    <img className={"card-img-top"} src={post.image_url}
+                                         style={{height: "400px", width: "600px"}} alt="Card image cap"/>
 
                                 </div>
                             </div>

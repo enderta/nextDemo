@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import { useRouter } from 'next/router'
+import {useRouter} from 'next/router'
 import Button from "react-bootstrap/Button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEdit, faPaperPlane, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
+import {faPaperPlane} from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../../components/Navbar";
 
 export default function edit() {
@@ -13,7 +13,7 @@ export default function edit() {
     const [image_url, setImage_url] = useState("");
     const [loading, setLoading] = useState(true);
     const router = useRouter();
-    const id= router.query.id;
+    const id = router.query.id;
     const created_at = new Date().toISOString();
 
 
@@ -36,7 +36,7 @@ export default function edit() {
                         setContent(data.data.rows[0].content);
                         setImage_url(data.data.rows[0].image_url);
                         setLoading(false);
-                }
+                    }
                 )
                 .catch((err) => console.log(err));
         }
@@ -58,7 +58,7 @@ export default function edit() {
                 content: content,
                 author: author,
                 image_url: image_url,
-               updated_at: new Date().toISOString()
+                updated_at: new Date().toISOString()
             })
         })
             .then(res => res.json())
@@ -74,39 +74,39 @@ export default function edit() {
         setImage_url("");
         router.push("/home");
     }
-        const handleTitle = (e) => {
-            e.preventDefault();
-            setTitle(e.target.value);
-        }
+    const handleTitle = (e) => {
+        e.preventDefault();
+        setTitle(e.target.value);
+    }
 
 
-        const handleContent = (e) => {
-            e.preventDefault();
-            setContent(e.target.value);
-        }
-        const handleAuthor = (e) => {
-            e.preventDefault();
-            setAuthor(e.target.value);
-        }
-        const handleImage_url = (e) => {
-            e.preventDefault();
-            setImage_url(e.target.value);
-        }
+    const handleContent = (e) => {
+        e.preventDefault();
+        setContent(e.target.value);
+    }
+    const handleAuthor = (e) => {
+        e.preventDefault();
+        setAuthor(e.target.value);
+    }
+    const handleImage_url = (e) => {
+        e.preventDefault();
+        setImage_url(e.target.value);
+    }
 
-        const handleDate = (e) => {
-            e.preventDefault();
-            setDate(new Date(e.target.value)) ;
-        }
+    const handleDate = (e) => {
+        e.preventDefault();
+        setDate(new Date(e.target.value));
+    }
 
 
-        return (
+    return (
         <>
             <div>
                 <Navbar/>
                 <div>
-                    {localStorage.getItem("role")!=="admin" ? window.location.href = "/home" :
+                    {localStorage.getItem("role") !== "admin" ? window.location.href = "/home" :
 
-                        loading  ? <h5 style={{color: "goldenrod", textAlign: "center"}}>loading...</h5> :(
+                        loading ? <h5 style={{color: "goldenrod", textAlign: "center"}}>loading...</h5> : (
 
                             <div className="container">
                                 <div>
@@ -118,19 +118,23 @@ export default function edit() {
                                         <form onSubmit={handleSubmit}>
                                             <div className="form-group">
                                                 <label htmlFor="title">Title</label>
-                                                <input type="text" className="form-control" id="title" value={title}  onChange={handleTitle}/>
+                                                <input type="text" className="form-control" id="title" value={title}
+                                                       onChange={handleTitle}/>
                                                 <div className="form-group">
                                                     <label htmlFor="content">Content</label>
-                                                    <textarea className="form-control" id="content" value={content} rows="3"
+                                                    <textarea className="form-control" id="content" value={content}
+                                                              rows="3"
                                                               onChange={handleContent}></textarea>
                                                     <div className="form-group">
                                                         <label htmlFor="author">Author</label>
-                                                        <input type="text" className="form-control" value={author} id="author"
+                                                        <input type="text" className="form-control" value={author}
+                                                               id="author"
                                                                onChange={handleAuthor}/>
                                                     </div>
                                                     <div className="form-group">
                                                         <label htmlFor="image_url">Image url</label>
-                                                        <input type="text" className="form-control" value={image_url} id="image_url"
+                                                        <input type="text" className="form-control" value={image_url}
+                                                               id="image_url"
                                                                onChange={handleImage_url}/>
                                                     </div>
 
@@ -138,7 +142,7 @@ export default function edit() {
                                             </div>
                                             <br/>
                                             <Button type="submit" variant={"outline-warning"}>
-                                                <FontAwesomeIcon  icon={faPaperPlane}/>
+                                                <FontAwesomeIcon icon={faPaperPlane}/>
                                             </Button>
                                         </form>
                                     </div>
@@ -146,10 +150,10 @@ export default function edit() {
                             </div>
                         )
                     }
-                    </div>
                 </div>
-            </>
-        );
-    }
+            </div>
+        </>
+    );
+}
 
 
