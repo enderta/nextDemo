@@ -14,7 +14,7 @@ export default function edit() {
     const [loading, setLoading] = useState(true);
     const router = useRouter();
     const id= router.query.id;
-   const [date, setDate] = useState(new Date().toISOString());
+    const created_at = new Date().toISOString();
 
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -40,8 +40,8 @@ export default function edit() {
                 )
                 .catch((err) => console.log(err));
         }
-        , [])
-    console.log(date)
+        , [id])
+    console.log(post)
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
@@ -58,7 +58,7 @@ export default function edit() {
                 content: content,
                 author: author,
                 image_url: image_url,
-                updated_at: date
+                created_at: created_at
             })
         })
             .then(res => res.json())
@@ -91,6 +91,11 @@ export default function edit() {
         const handleImage_url = (e) => {
             e.preventDefault();
             setImage_url(e.target.value);
+        }
+
+        const handleDate = (e) => {
+            e.preventDefault();
+            setDate(new Date(e.target.value)) ;
         }
 
 
@@ -128,6 +133,7 @@ export default function edit() {
                                                         <input type="text" className="form-control" value={image_url} id="image_url"
                                                                onChange={handleImage_url}/>
                                                     </div>
+
                                                 </div>
                                             </div>
                                             <br/>
