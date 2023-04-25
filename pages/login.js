@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Form } from "react-bootstrap";
+import {useState} from "react";
+import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -50,19 +50,18 @@ const Login = () => {
     };
 
 
-
     return (
         <div>
             <div>
-                <h1 style={{ color: "goldenrod", textAlign: "center" }}>Login</h1>
+                <h1 style={{color: "goldenrod", textAlign: "center"}}>Login</h1>
             </div>
 
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 mt-5 mx-auto">
-                        <Form style={{ width: "50%", margin: "auto" }}>
+                        <Form style={{width: "50%", margin: "auto"}}>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label style={{ color: "goldenrod" }}>
+                                <Form.Label style={{color: "goldenrod"}}>
                                     Email address
                                 </Form.Label>
                                 <Form.Control
@@ -73,7 +72,7 @@ const Login = () => {
                                 />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label style={{ color: "goldenrod" }}>Password</Form.Label>
+                                <Form.Label style={{color: "goldenrod"}}>Password</Form.Label>
                                 <Form.Control
                                     type="password"
                                     placeholder="Password"
@@ -83,7 +82,7 @@ const Login = () => {
                             </Form.Group>
                             <Button
                                 variant="outline-success"
-                                style={{ margin: "10px" }}
+                                style={{margin: "10px"}}
                                 type="submit"
                                 onClick={login}
                             >
@@ -91,7 +90,7 @@ const Login = () => {
                             </Button>
                             <Button
                                 variant="outline-success"
-                                style={{ margin: "10px" }}
+                                style={{margin: "10px"}}
                                 type="button"
                                 onClick={handleBack}
                             >

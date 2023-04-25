@@ -47,10 +47,10 @@ export default async function handler(req, res) {
                 return res.status(403).json({message: "Forbidden"});
             }
 
-            const {title, content, author, image_url,updated_at} = req.body;
+            const {title, content, author, image_url, updated_at} = req.body;
             const {rows} = await client.query(
                 "UPDATE blog_posts SET title = $1, content = $2, author = $3, image_url = $4, updated_at = $5 WHERE id = $6 RETURNING *",
-                [title, content, author, image_url,updated_at, id]
+                [title, content, author, image_url, updated_at, id]
             );
             if (rows.length === 0) {
                 return res.status(404).json({

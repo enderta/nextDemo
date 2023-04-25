@@ -1,7 +1,6 @@
-import {connectDb, releaseDb} from '../db';
+import {connectDb} from '../db';
 import jwt from 'jsonwebtoken';
 import {check, validationResult} from 'express-validator';
-import * as path from "path";
 
 const secret = 'your_secret_key_here';
 
@@ -91,7 +90,6 @@ export default async function allPosts(req, res) {
 
 
     }
-
 
 
 }
